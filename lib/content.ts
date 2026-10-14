@@ -199,17 +199,17 @@ export const dict: Record<Locale, Dict> = {
         {
           title: "Familia",
           line: "l1",
-          text: "Somos una familia grande y muy unida, y yo soy el menor de los hermanos. Parte de la familia vive en Estados Unidos, incluidos tres de mis sobrinos, así que viajo seguido a verlos. Estoy casado con Valeria.",
+          text: "Estoy casado con Valeria, una mujer maravillosa. Vengo de una familia grande y muy unida, donde soy el menor de los hermanos. Parte de la familia vive en Estados Unidos, pero seguimos muy cerca y nos vemos seguido.",
         },
         {
           title: "Deporte",
           line: "l5",
-          text: "El fútbol me acompaña desde chico y lo sigo jugando cada vez que puedo. Además veo casi cualquier deporte, y los fines de semana sufro con Unión Española.",
+          text: "El fútbol me acompaña desde chico y lo sigo jugando cada vez que puedo. Veo casi cualquier deporte que esté dando, y soy hincha de Unión Española en las buenas y en las malas.",
         },
         {
-          title: "Viajes",
+          title: "Viajes y buena mesa",
           line: "l4",
-          text: "Viajar es lo que más disfruto. Me gusta conocer lugares nuevos y casi siempre tengo el próximo viaje en planes.",
+          text: "Viajar y salir a comer son mis dos grandes gustos, y ahí se va buena parte de mi presupuesto de ocio. Siempre tengo un próximo viaje o un restaurante nuevo en la lista.",
         },
       ],
     },
@@ -349,17 +349,17 @@ export const dict: Record<Locale, Dict> = {
         {
           title: "Family",
           line: "l1",
-          text: "We're a big, close family, and I'm the youngest of my siblings. Part of the family lives in the United States, including three of my nephews and nieces, so I travel often to see them. I'm married to Valeria.",
+          text: "I'm married to Valeria, a wonderful woman. I come from a big, close family, where I'm the youngest of my siblings. Part of the family lives in the United States, but we stay very close and see each other often.",
         },
         {
           title: "Sports",
           line: "l5",
-          text: "Football has been with me since I was a kid and I still play whenever I can. I'll watch almost any sport, and on weekends I suffer with Unión Española.",
+          text: "Football has been with me since I was a kid and I still play whenever I can. I'll watch almost any sport that's on, and I support Unión Española through good times and bad.",
         },
         {
-          title: "Travel",
+          title: "Travel and good food",
           line: "l4",
-          text: "Traveling is what I enjoy most. I like getting to know new places and there's usually a next trip in the works.",
+          text: "Traveling and eating out are my two big pleasures, and they take a good share of my leisure budget. There's always a next trip or a new restaurant on my list.",
         },
       ],
     },
