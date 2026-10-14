@@ -25,6 +25,7 @@ export type Project = {
   what: string;
   why: string;
   did: string;
+  found?: string;
   learned?: string;
   next?: string;
   links: Link[];
@@ -41,7 +42,7 @@ export type Dict = {
   projects: {
     title: string;
     intro: string;
-    labels: { why: string; did: string; learned: string; next: string };
+    labels: { why: string; did: string; found: string; learned: string; next: string };
     items: Project[];
   };
   life: { title: string; items: Personal[] };
@@ -109,7 +110,7 @@ export const dict: Record<Locale, Dict> = {
     projects: {
       title: "Proyectos propios",
       intro: "Cosas que he armado fuera del trabajo. Algunas funcionan, otras siguen en camino.",
-      labels: { why: "Por qué", did: "Qué hice", learned: "Aprendí", next: "Lo que viene" },
+      labels: { why: "Por qué", did: "Qué hice", found: "Lo que mostraron los datos", learned: "Lo que aprendí", next: "Lo que viene" },
       items: [
         {
           id: "jobit",
@@ -120,9 +121,21 @@ export const dict: Record<Locale, Dict> = {
           live: true,
           what: "Asesor de CV para Chile. Te muestra qué le falta a tu CV citando tus propias líneas, lo reescribe sin inventar y lo adapta a cada aviso.",
           why: "La mayoría de los CV en Chile describen el cargo y no lo que la persona logró. Y al salir de la universidad nadie te explica cómo contar tu experiencia.",
-          did: "Definí el producto y el modelo de negocio, y lo construí con Claude Code: Next.js, Postgres, la API de Claude y Mercado Pago.",
-          learned: "Una regla escrita en el prompt no alcanza. Tiene que estar en el código.",
+          did: "Definí el producto, el modelo de negocio y la experiencia, y lo construí con Claude Code: diagnóstico, reescritura, CV desde cero, CV adaptado a cada aviso con carta, seguimiento de postulaciones y pago con Mercado Pago.",
+          learned: "A llevar solo un producto completo a producción: login, pagos, correos, 30 suites de tests y una evaluación de la IA con CVs reales. Y que las reglas críticas, como no inventar cifras, hay que verificarlas en el código; escribirlas en el prompt no basta.",
           links: jobitLinks,
+        },
+        {
+          id: "finanzas",
+          name: "Asesoría de finanzas personales",
+          line: "l4a",
+          mark: "$",
+          status: "Activo · más de 10 clientes",
+          live: true,
+          what: "Enseño a ordenar las finanzas personales: controlar los gastos, ahorrar y entender lo básico de invertir, con consejos prácticos para empezar.",
+          why: "Armé un sistema para las finanzas de mi casa que me funcionó, y vi que mucha gente empieza a ganar su plata sin ninguna herramienta para administrarla.",
+          did: "Tres módulos que normalmente cubro en una o dos clases: presupuesto y registro de gastos, ahorro y fondo de emergencia, e introducción a la inversión. Cada persona se lleva una planilla adaptada a sus prioridades, y hacemos seguimiento.",
+          links: [],
         },
         {
           id: "cmr",
@@ -131,10 +144,10 @@ export const dict: Record<Locale, Dict> = {
           mark: "C",
           status: "Ago 2026 · publicada",
           live: true,
-          what: "Ayuda a decidir si canjear tus puntos CMR hoy o esperar el nuevo formato.",
+          what: "Ayuda a decidir si canjear tus puntos CMR hoy o esperar el nuevo formato, y te muestra tu punto de equilibrio.",
           why: "Viendo un live, noté que la gente no sabía qué hacer con sus puntos ante el cambio. En el fondo era un problema de cálculo.",
-          did: "La armé con IA sin haber publicado nunca una web ni usado Git. La han usado más de 10.000 personas.",
-          learned: "Validar los supuestos con la fuente oficial antes de publicar.",
+          did: "La armé con IA en pocos días y la validé contra la comunicación oficial del banco. Más de 10.000 personas la han usado.",
+          learned: "Fue mi primer proyecto en producción con usuarios reales. Aprendí a publicar una aplicación de punta a punta: repositorio en GitHub, despliegue automático en Vercel, dominio, imagen para compartir en redes y analítica para medir el uso.",
           links: cmrLinks,
         },
         {
@@ -144,10 +157,11 @@ export const dict: Record<Locale, Dict> = {
           mark: "F",
           status: "Ago 2026 · uso personal",
           live: true,
-          what: "Busca qué departamentos en Chile rinden de verdad, con cada número rastreable hasta su fuente.",
+          what: "Busca qué departamentos en Chile rinden de verdad como inversión, con cada número rastreable hasta su fuente.",
           why: "Quería invertir en un departamento y los rendimientos publicados no resistían la aritmética.",
-          did: "Cada semana revisa unos 2.700 departamentos contra más de 5.200 arriendos en 384 microzonas, y me manda un informe.",
-          learned: "La mitad del valor está en limpiar los datos: avisos repetidos, arriendos de temporada, departamentos ya vendidos.",
+          did: "Un sistema que cada semana revisa unos 2.700 departamentos contra más de 5.200 arriendos reales en 384 microzonas, estima el arriendo con un modelo propio y me manda un informe con el ranking.",
+          found: "Los rankings por comuna esconden diferencias de hasta 17% entre barrios vecinos, y muchos rendimientos publicados usan arriendos estimados sin comparables reales.",
+          learned: "A construir un modelo de precios con 5,7% de error mediano y un pipeline que corre solo. La mitad del trabajo fue limpiar datos: detectar avisos repetidos, arriendos de temporada y departamentos ya vendidos.",
           links: [],
         },
         {
@@ -157,10 +171,11 @@ export const dict: Record<Locale, Dict> = {
           mark: "M",
           status: "Ago 2026 · activo",
           live: true,
-          what: "Datos abiertos de las compras del Estado, para ver caso a caso dónde se paga distinto por lo mismo.",
+          what: "Herramientas para explorar las compras del Estado y ver, caso a caso, dónde se paga distinto por el mismo producto.",
           why: "Se dice mucho que las compras públicas están rotas, casi siempre sin mostrar los datos.",
-          did: "Analicé unos 23.000 ítems de más de 1.500 organismos. Mi estimación de ahorro coincidió con la de una comisión oficial, usando otro método.",
-          learned: "Distinguir un hallazgo de un error en los datos.",
+          did: "Crucé unos 23.000 ítems comprados por más de 1.500 organismos públicos usando datos abiertos, y armé un comparador de precios y un estimador de ahorro.",
+          found: "Si el Estado coordinara mejor sus compras, podría ahorrar entre 1,7% y 4,8%. Una comisión oficial llegó a 1,5–2,5% con otro método. También apareció un supuesto ahorro de 51% que en realidad mezclaba productos distintos bajo una misma categoría.",
+          learned: "A trabajar con datos públicos grandes y desordenados: normalizar productos, controlar por región y mes, y revisar cada cifra llamativa antes de creerla.",
           links: [],
         },
         {
@@ -172,21 +187,8 @@ export const dict: Record<Locale, Dict> = {
           live: false,
           what: "Sigue cada semana las redes de 49 legisladores chilenos y arma el historial que TikTok e Instagram no muestran.",
           why: "Las redes solo muestran una foto del momento. El valor está en juntar esas fotos en el tiempo.",
-          did: "Lo construí en una semana y corre solo cada semana.",
-          learned: "Construir fue lo fácil. Lo difícil es validar que alguien lo necesite.",
-          links: [],
-        },
-        {
-          id: "finanzas",
-          name: "Finanzas personales",
-          line: "l4a",
-          mark: "$",
-          status: "2026 · en preparación",
-          live: false,
-          what: "Asesoría para ordenar tus gastos, ahorrar y entender lo básico de invertir.",
-          why: "Armé un sistema para las finanzas de mi casa que me funcionó, y quise compartirlo con quienes recién empiezan a ganar su plata.",
-          did: "Tres clases, una planilla que se adapta a cada persona y sesiones de seguimiento.",
-          next: "Probarlo con los primeros usuarios.",
+          did: "En una semana pasé de 3 cuentas de prueba a 52 legisladores, con 8 métricas (crecimiento, engagement, alertas) y un panel que compara gobierno y oposición. Se actualiza solo cada semana.",
+          learned: "A automatizar la recolección de datos con scrapers y GitHub Actions. Y que construir era la parte fácil: lo pausé para validar primero si alguien lo necesita antes de seguir.",
           links: [],
         },
       ],
@@ -197,17 +199,17 @@ export const dict: Record<Locale, Dict> = {
         {
           title: "Familia",
           line: "l1",
-          text: "Vengo de una familia grande y unida, y soy el menor de los hermanos. Tres de mis sobrinos viven en Estados Unidos y voy seguido a verlos. Estoy casado con Valeria.",
+          text: "Somos una familia grande y muy unida, y yo soy el menor de los hermanos. Parte de la familia vive en Estados Unidos, incluidos tres de mis sobrinos, así que viajo seguido a verlos. Estoy casado con Valeria.",
         },
         {
-          title: "Fútbol",
+          title: "Deporte",
           line: "l5",
-          text: "Juego fútbol desde siempre y veo el deporte que me pongan. Hincha de Unión Española.",
+          text: "El fútbol me acompaña desde chico y lo sigo jugando cada vez que puedo. Además veo casi cualquier deporte, y los fines de semana sufro con Unión Española.",
         },
         {
           title: "Viajes",
           line: "l4",
-          text: "Es lo que más hago. Siempre hay un próximo viaje en el calendario.",
+          text: "Viajar es lo que más disfruto. Me gusta conocer lugares nuevos y casi siempre tengo el próximo viaje en planes.",
         },
       ],
     },
@@ -258,7 +260,7 @@ export const dict: Record<Locale, Dict> = {
     projects: {
       title: "Side projects",
       intro: "Things I've built outside work. Some work, others are still on their way.",
-      labels: { why: "Why", did: "What I did", learned: "What I learned", next: "What's next" },
+      labels: { why: "Why", did: "What I did", found: "What the data showed", learned: "What I learned", next: "What's next" },
       items: [
         {
           id: "jobit",
@@ -269,9 +271,21 @@ export const dict: Record<Locale, Dict> = {
           live: true,
           what: "A CV advisor for Chile. It shows what your CV is missing by quoting your own lines, rewrites it without making things up, and tailors it to each job post.",
           why: "Most CVs in Chile describe the role, not what the person achieved. And when you finish university, nobody explains how to tell your experience.",
-          did: "I defined the product and business model, and built it with Claude Code: Next.js, Postgres, the Claude API and Mercado Pago.",
-          learned: "A rule written in the prompt isn't enough. It has to live in the code.",
+          did: "I defined the product, the business model and the experience, and built it with Claude Code: diagnosis, rewriting, CV from scratch, CV tailored to each post with a cover letter, application tracking and payments with Mercado Pago.",
+          learned: "How to take a complete product to production on my own: login, payments, emails, 30 test suites and an AI evaluation with real CVs. And that critical rules, like never inventing numbers, have to be enforced in code; writing them in the prompt isn't enough.",
           links: jobitLinks,
+        },
+        {
+          id: "finanzas",
+          name: "Personal finance coaching",
+          line: "l4a",
+          mark: "$",
+          status: "Active · 10+ clients",
+          live: true,
+          what: "I teach people to get their personal finances in order: track spending, save, and understand the basics of investing, with practical tips to get started.",
+          why: "I built a system for my household finances that worked, and saw that many people start earning their own money without any tool to manage it.",
+          did: "Three modules I usually cover in one or two sessions: budgeting and expense tracking, saving and emergency funds, and an introduction to investing. Each person gets a spreadsheet adapted to their priorities, and we follow up.",
+          links: [],
         },
         {
           id: "cmr",
@@ -280,10 +294,10 @@ export const dict: Record<Locale, Dict> = {
           mark: "C",
           status: "Aug 2026 · live",
           live: true,
-          what: "Helps decide whether to redeem your CMR points now or wait for the new format.",
+          what: "Helps decide whether to redeem your CMR points now or wait for the new format, and shows your break-even point.",
           why: "Watching a livestream, I noticed people didn't know what to do with their points before the change. It was really a math problem.",
-          did: "I built it with AI without ever having deployed a website or used Git. More than 10,000 people have used it.",
-          learned: "Check assumptions against the official source before publishing.",
+          did: "I built it with AI in a few days and checked it against the bank's official communication. More than 10,000 people have used it.",
+          learned: "It was my first project in production with real users. I learned to ship an application end to end: GitHub repository, automatic deploys on Vercel, domain, social sharing image and analytics to measure usage.",
           links: cmrLinks,
         },
         {
@@ -295,8 +309,9 @@ export const dict: Record<Locale, Dict> = {
           live: true,
           what: "Finds which apartments in Chile actually pay off as an investment, with every number traceable to its source.",
           why: "I wanted to buy an apartment to rent out, and the published yields didn't survive basic arithmetic.",
-          did: "Every week it checks about 2,700 apartments against more than 5,200 rentals across 384 micro-areas, and emails me a report.",
-          learned: "Half the value is in cleaning the data: duplicate listings, seasonal rentals, units already sold.",
+          did: "A system that every week checks about 2,700 apartments against more than 5,200 real rentals across 384 micro-areas, estimates rent with its own model and emails me a ranked report.",
+          found: "Rankings by district hide gaps of up to 17% between neighboring areas, and many published yields rely on estimated rents with no real comparables.",
+          learned: "How to build a pricing model with a 5.7% median error and a pipeline that runs on its own. Half the work was cleaning data: catching duplicate listings, seasonal rentals and units already sold.",
           links: [],
         },
         {
@@ -306,10 +321,11 @@ export const dict: Record<Locale, Dict> = {
           mark: "M",
           status: "Aug 2026 · active",
           live: true,
-          what: "Open data on Chilean government purchases, to see case by case where the State pays different prices for the same thing.",
+          what: "Tools to explore Chilean government purchases and see, case by case, where the State pays different prices for the same product.",
           why: "People often say public procurement is broken, almost always without showing the data.",
-          did: "I analyzed about 23,000 items from over 1,500 agencies. My savings estimate matched an official commission's, using a different method.",
-          learned: "Telling a real finding apart from a data error.",
+          did: "I matched about 23,000 items bought by more than 1,500 public agencies using open data, and built a price comparison tool and a savings estimator.",
+          found: "Better coordinated purchasing could save the State between 1.7% and 4.8%. An official commission reached 1.5–2.5% with a different method. A supposed 51% saving turned out to be mixing different products under one category.",
+          learned: "How to work with large, messy public data: normalizing products, controlling for region and month, and checking every striking number before trusting it.",
           links: [],
         },
         {
@@ -321,21 +337,8 @@ export const dict: Record<Locale, Dict> = {
           live: false,
           what: "Tracks the social media of 49 Chilean legislators every week, building the history TikTok and Instagram don't show.",
           why: "Social networks only show a snapshot. The value is in collecting those snapshots over time.",
-          did: "I built it in a week and it runs on its own every week.",
-          learned: "Building was the easy part. The hard part is validating that someone needs it.",
-          links: [],
-        },
-        {
-          id: "finanzas",
-          name: "Personal finance",
-          line: "l4a",
-          mark: "$",
-          status: "2026 · in preparation",
-          live: false,
-          what: "Coaching to organize your spending, save, and understand the basics of investing.",
-          why: "I built a system for my household finances that worked, and wanted to share it with people who are just starting to earn their own money.",
-          did: "Three classes, a spreadsheet that adapts to each person, and follow-up sessions.",
-          next: "Testing it with the first users.",
+          did: "In one week I went from 3 test accounts to 52 legislators, with 8 metrics (growth, engagement, alerts) and a dashboard comparing government and opposition. It updates itself every week.",
+          learned: "How to automate data collection with scrapers and GitHub Actions. And that building was the easy part: I paused it to validate whether anyone needs it before going further.",
           links: [],
         },
       ],
@@ -346,17 +349,17 @@ export const dict: Record<Locale, Dict> = {
         {
           title: "Family",
           line: "l1",
-          text: "I come from a big, close family, and I'm the youngest of my siblings. Three of my nephews and nieces live in the United States and I visit them often. I'm married to Valeria.",
+          text: "We're a big, close family, and I'm the youngest of my siblings. Part of the family lives in the United States, including three of my nephews and nieces, so I travel often to see them. I'm married to Valeria.",
         },
         {
-          title: "Football",
+          title: "Sports",
           line: "l5",
-          text: "I've played football all my life and I'll watch any sport that's on. Unión Española fan.",
+          text: "Football has been with me since I was a kid and I still play whenever I can. I'll watch almost any sport, and on weekends I suffer with Unión Española.",
         },
         {
           title: "Travel",
           line: "l4",
-          text: "It's what I do most. There's always a next trip on the calendar.",
+          text: "Traveling is what I enjoy most. I like getting to know new places and there's usually a next trip in the works.",
         },
       ],
     },

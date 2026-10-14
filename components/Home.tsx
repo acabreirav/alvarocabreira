@@ -12,7 +12,7 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
   );
 }
 
-function ProjectCard({ p, labels }: { p: Project; labels: Record<"why" | "did" | "learned" | "next", string> }) {
+function ProjectCard({ p, labels }: { p: Project; labels: Record<"why" | "did" | "found" | "learned" | "next", string> }) {
   return (
     <article className="project" style={{ "--c": `var(--${p.line})` } as React.CSSProperties} id={p.id}>
       <span className={`badge ${p.line}`} aria-hidden="true">
@@ -31,6 +31,12 @@ function ProjectCard({ p, labels }: { p: Project; labels: Record<"why" | "did" |
             <dt>{labels.did}</dt>
             <dd>{p.did}</dd>
           </div>
+          {p.found && (
+            <div>
+              <dt>{labels.found}</dt>
+              <dd className="learned">{p.found}</dd>
+            </div>
+          )}
           {p.learned && (
             <div>
               <dt>{labels.learned}</dt>
