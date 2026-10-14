@@ -110,7 +110,7 @@ export const dict: Record<Locale, Dict> = {
     projects: {
       title: "Proyectos propios",
       intro: "Cosas que he armado fuera del trabajo. Algunas funcionan, otras siguen en camino.",
-      labels: { why: "Por qué", did: "Qué hice", found: "Lo que mostraron los datos", learned: "Lo que aprendí", next: "Lo que viene" },
+      labels: { why: "Por qué", did: "Qué hice", found: "Resultados", learned: "Lo que aprendí", next: "Lo que viene" },
       items: [
         {
           id: "jobit",
@@ -130,11 +130,13 @@ export const dict: Record<Locale, Dict> = {
           name: "Asesoría de finanzas personales",
           line: "l4a",
           mark: "$",
-          status: "Activo · más de 10 clientes",
+          status: "Desde fines de 2025 · más de 10 clientes",
           live: true,
-          what: "Enseño a ordenar las finanzas personales: controlar los gastos, ahorrar y entender lo básico de invertir, con consejos prácticos para empezar.",
-          why: "Armé un sistema para las finanzas de mi casa que me funcionó, y vi que mucha gente empieza a ganar su plata sin ninguna herramienta para administrarla.",
-          did: "Tres módulos que normalmente cubro en una o dos clases: presupuesto y registro de gastos, ahorro y fondo de emergencia, e introducción a la inversión. Cada persona se lleva una planilla adaptada a sus prioridades, y hacemos seguimiento.",
+          what: "Enseño a ordenar las finanzas personales: llevar el registro de los gastos, ahorrar y entender lo básico de invertir, con consejos prácticos para empezar.",
+          why: "Mucha gente pasa de un día para otro a manejar su propia plata, sin ninguna herramienta. Con lo que ganan no deberían tener problemas, pero sin orden terminan teniéndolos. Yo había armado un sistema para las finanzas de mi casa que me funcionaba, y quise compartirlo.",
+          did: "Una asesoría pagada en tres módulos, que normalmente cubro en una o dos clases: presupuesto y registro de gastos, ahorro y fondo de emergencia, e introducción a la inversión. Cada persona se lleva una planilla adaptada a sus prioridades. Los clientes llegan casi todos por recomendación.",
+          found: "Casi todos hicieron su primer ahorro fuera de un depósito a plazo, y quienes adoptaron la planilla llevan hoy el registro completo de sus gastos.",
+          learned: "Que el problema casi nunca es cuánto gana la persona, sino el orden. La planilla es el centro de la asesoría, pero no a todos les acomoda: algunos aprovechan más los consejos prácticos de ahorro e inversión, así que adapto cada asesoría a la persona.",
           links: [],
         },
         {
@@ -260,7 +262,7 @@ export const dict: Record<Locale, Dict> = {
     projects: {
       title: "Side projects",
       intro: "Things I've built outside work. Some work, others are still on their way.",
-      labels: { why: "Why", did: "What I did", found: "What the data showed", learned: "What I learned", next: "What's next" },
+      labels: { why: "Why", did: "What I did", found: "Results", learned: "What I learned", next: "What's next" },
       items: [
         {
           id: "jobit",
@@ -280,11 +282,13 @@ export const dict: Record<Locale, Dict> = {
           name: "Personal finance coaching",
           line: "l4a",
           mark: "$",
-          status: "Active · 10+ clients",
+          status: "Since late 2025 · 10+ clients",
           live: true,
-          what: "I teach people to get their personal finances in order: track spending, save, and understand the basics of investing, with practical tips to get started.",
-          why: "I built a system for my household finances that worked, and saw that many people start earning their own money without any tool to manage it.",
-          did: "Three modules I usually cover in one or two sessions: budgeting and expense tracking, saving and emergency funds, and an introduction to investing. Each person gets a spreadsheet adapted to their priorities, and we follow up.",
+          what: "I teach people to get their personal finances in order: track their spending, save, and understand the basics of investing, with practical tips to get started.",
+          why: "Many people go from one day to the next to managing their own money, with no tools at all. With what they earn they shouldn't be in trouble, but without order they end up there. I had built a system for my household finances that worked, and wanted to share it.",
+          did: "Paid coaching in three modules that I usually cover in one or two sessions: budgeting and expense tracking, saving and emergency funds, and an introduction to investing. Each person gets a spreadsheet adapted to their priorities. Almost all clients come through referrals.",
+          found: "Almost all of them made their first savings outside a term deposit, and those who adopted the spreadsheet now track all their expenses.",
+          learned: "The problem is rarely how much someone earns; it's the lack of order. The spreadsheet is the core of the coaching, but it doesn't suit everyone: some get more out of the practical saving and investing tips, so I adapt each session to the person.",
           links: [],
         },
         {
