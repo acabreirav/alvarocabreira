@@ -206,8 +206,14 @@ export const dict: Record<Locale, Dict> = {
     life: {
       title: "Fuera del trabajo",
       photos: [
-        { src: "/fotos/trekking.jpg", width: 720, height: 536, alt: "Álvaro y Valeria de trekking entre araucarias, con un volcán nevado al fondo", caption: "Con Valeria, de trekking en el sur de Chile" },
-        { src: "/fotos/gata.jpg", width: 720, height: 720, alt: "Gata tricolor durmiendo sobre un escritorio frente al computador", caption: "Compañera de home office" },
+        { src: "/fotos/amsterdam.jpg", width: 1280, height: 720, alt: "Álvaro y Valeria en un puente sobre un canal de Ámsterdam", caption: "Con Valeria en Ámsterdam" },
+        { src: "/fotos/buzios.jpg", width: 960, height: 1280, alt: "Álvaro con traje de buceo en el mar, haciendo el gesto shaka", caption: "Buceando en Búzios, Brasil" },
+        { src: "/fotos/trekking.jpg", width: 720, height: 536, alt: "Álvaro y Valeria de trekking entre araucarias, con un volcán nevado al fondo", caption: "Con Valeria en Conguillío" },
+        { src: "/fotos/ny-calabazas.jpg", width: 1280, height: 853, alt: "Valeria besando una calabaza que Álvaro sostiene frente a su cara, con árboles de otoño de fondo", caption: "Apple y pumpkin picking en Nueva York" },
+        { src: "/fotos/brandreth.jpg", width: 967, height: 1280, alt: "Álvaro haciendo una parada de manos sobre una roca junto a un lago con árboles de otoño", caption: "Parada de manos en Brandreth, Nueva York" },
+        { src: "/fotos/futbol.jpg", width: 840, height: 578, alt: "Álvaro con camiseta blanca conduciendo el balón en un partido", caption: "Jugando en la LICOOF, 2021. Foto: @deportefotografo" },
+        { src: "/fotos/sobrino.jpg", width: 720, height: 1220, alt: "Álvaro sosteniendo a su sobrino bebé, que sonríe con los pies en una piscina", caption: "Con uno de mis sobrinos" },
+        { src: "/fotos/gata.jpg", width: 720, height: 720, alt: "Gata tricolor durmiendo sobre un escritorio frente al computador", caption: "Mili, compañera de home office" },
       ],
       items: [
         {
@@ -367,8 +373,14 @@ export const dict: Record<Locale, Dict> = {
     life: {
       title: "Outside work",
       photos: [
-        { src: "/fotos/trekking.jpg", width: 720, height: 536, alt: "Álvaro and Valeria hiking among araucaria trees, with a snowy volcano behind", caption: "Hiking with Valeria in southern Chile" },
-        { src: "/fotos/gata.jpg", width: 720, height: 720, alt: "Calico cat asleep on a desk in front of a computer", caption: "Work-from-home companion" },
+        { src: "/fotos/amsterdam.jpg", width: 1280, height: 720, alt: "Álvaro and Valeria on a bridge over an Amsterdam canal", caption: "With Valeria in Amsterdam" },
+        { src: "/fotos/buzios.jpg", width: 960, height: 1280, alt: "Álvaro in a wetsuit in the sea, making a shaka sign", caption: "Diving in Búzios, Brazil" },
+        { src: "/fotos/trekking.jpg", width: 720, height: 536, alt: "Álvaro and Valeria hiking among araucaria trees, with a snowy volcano behind", caption: "With Valeria in Conguillío" },
+        { src: "/fotos/ny-calabazas.jpg", width: 1280, height: 853, alt: "Valeria kissing a pumpkin Álvaro holds in front of his face, with autumn trees behind", caption: "Apple and pumpkin picking in New York" },
+        { src: "/fotos/brandreth.jpg", width: 967, height: 1280, alt: "Álvaro doing a handstand on a rock by a lake with autumn trees", caption: "Handstand at Brandreth, New York" },
+        { src: "/fotos/futbol.jpg", width: 840, height: 578, alt: "Álvaro in a white shirt dribbling the ball during a match", caption: "Playing in the LICOOF league, 2021. Photo: @deportefotografo" },
+        { src: "/fotos/sobrino.jpg", width: 720, height: 1220, alt: "Álvaro holding his baby nephew, who smiles with his feet in a pool", caption: "With one of my nephews" },
+        { src: "/fotos/gata.jpg", width: 720, height: 720, alt: "Calico cat asleep on a desk in front of a computer", caption: "Mili, my work-from-home companion" },
       ],
       items: [
         {
