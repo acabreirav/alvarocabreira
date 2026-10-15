@@ -8,11 +8,14 @@ export type Line = "l1" | "l2" | "l3" | "l4" | "l4a" | "l5" | "l6";
 
 export type Link = { label: string; href: string };
 
+export type Photo = { src: string; alt: string; caption: string; width: number; height: number };
+
 export type Stop = {
   name: string;
   years: string;
   text: string;
   now?: boolean;
+  photos?: Photo[];
 };
 
 export type Project = {
@@ -45,7 +48,7 @@ export type Dict = {
     labels: { why: string; did: string; found: string; learned: string; next: string };
     items: Project[];
   };
-  life: { title: string; items: Personal[] };
+  life: { title: string; items: Personal[]; photos: Photo[] };
   contact: { title: string; text: string; copy: string; copied: string };
   footer: string;
 };
@@ -56,8 +59,8 @@ export const site = {
   email: "a.cabreira.v@gmail.com",
   linkedin: "https://www.linkedin.com/in/alvaro-cabreira/",
   cv: "/cv-alvaro-cabreira.pdf",
-  // Cuando tengas foto, déjala en /public/foto.jpg y cambia esto a "/foto.jpg".
-  photo: null as string | null,
+  // Foto principal. Las fotos viven en /public/fotos.
+  photo: "/fotos/retrato.jpg" as string | null,
 };
 
 const jobitLinks: Link[] = [
@@ -103,6 +106,11 @@ export const dict: Record<Locale, Dict> = {
           name: "LATAM Airlines",
           years: "2023–hoy",
           now: true,
+          photos: [
+            { src: "/fotos/avion.jpg", width: 720, height: 615, alt: "Álvaro con chaleco reflectante frente al motor de un avión en la losa", caption: "En la losa de Guarulhos, São Paulo" },
+            { src: "/fotos/rampa.jpg", width: 720, height: 580, alt: "Operadores cargando maletas en una camioneta junto a una manga del aeropuerto", caption: "Trabajo en rampa" },
+            { src: "/fotos/equipaje.jpg", width: 720, height: 536, alt: "Álvaro y dos colegas revisando maletas en la zona de equipaje", caption: "Revisando equipaje con el equipo" },
+          ],
           text: "Trabajo en equipaje. Con mi equipo diseñamos herramientas digitales para que las maletas no se pierdan en conexiones cortas, y para que recuperarlas sea más rápido y claro cuando pasa. Paso tiempo en rampa con los operadores, miro los datos y priorizo qué construir. El primer producto bajó en 30% los equipajes extraviados en conexiones avión a avión, y hoy es la base para digitalizar otros procesos de rampa.",
         },
       ],
@@ -197,6 +205,10 @@ export const dict: Record<Locale, Dict> = {
     },
     life: {
       title: "Fuera del trabajo",
+      photos: [
+        { src: "/fotos/trekking.jpg", width: 720, height: 536, alt: "Álvaro y Valeria de trekking entre araucarias, con un volcán nevado al fondo", caption: "Con Valeria, de trekking en el sur de Chile" },
+        { src: "/fotos/gata.jpg", width: 720, height: 720, alt: "Gata tricolor durmiendo sobre un escritorio frente al computador", caption: "Compañera de home office" },
+      ],
       items: [
         {
           title: "Familia",
@@ -255,6 +267,11 @@ export const dict: Record<Locale, Dict> = {
           name: "LATAM Airlines",
           years: "2023–now",
           now: true,
+          photos: [
+            { src: "/fotos/avion.jpg", width: 720, height: 615, alt: "Álvaro in a high-visibility vest in front of an aircraft engine on the apron", caption: "On the apron at Guarulhos, São Paulo" },
+            { src: "/fotos/rampa.jpg", width: 720, height: 580, alt: "Ground staff loading bags into a truck next to a jet bridge", caption: "Working on the ramp" },
+            { src: "/fotos/equipaje.jpg", width: 720, height: 536, alt: "Álvaro and two colleagues checking bags in the baggage area", caption: "Checking bags with the team" },
+          ],
           text: "I work on baggage. My team builds digital tools so bags don't get lost on short connections, and so getting them back is faster and clearer when they do. I spend time on the ramp with operators, look at the data and decide what to build. The first product cut mishandled bags on aircraft-to-aircraft connections by 30%, and it's now the base for digitizing other ramp processes.",
         },
       ],
@@ -349,6 +366,10 @@ export const dict: Record<Locale, Dict> = {
     },
     life: {
       title: "Outside work",
+      photos: [
+        { src: "/fotos/trekking.jpg", width: 720, height: 536, alt: "Álvaro and Valeria hiking among araucaria trees, with a snowy volcano behind", caption: "Hiking with Valeria in southern Chile" },
+        { src: "/fotos/gata.jpg", width: 720, height: 720, alt: "Calico cat asleep on a desk in front of a computer", caption: "Work-from-home companion" },
+      ],
       items: [
         {
           title: "Family",

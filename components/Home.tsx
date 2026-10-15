@@ -1,4 +1,4 @@
-import { dict, site, type Locale, type Project } from "@/lib/content";
+import { dict, site, type Locale, type Photo, type Project } from "@/lib/content";
 import { CopyEmail } from "./CopyEmail";
 
 function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -9,6 +9,22 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
         <path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" strokeWidth="1.6" />
       </svg>
     </a>
+  );
+}
+
+function Gallery({ photos, label }: { photos: Photo[]; label: string }) {
+  return (
+    <ul className="gallery" aria-label={label} tabIndex={0}>
+      {photos.map((ph) => (
+        <li key={ph.src}>
+          <figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} decoding="async" />
+            <figcaption>{ph.caption}</figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -105,7 +121,7 @@ export function Home({ locale }: { locale: Locale }) {
           </div>
           {site.photo ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="photo" src={site.photo} alt={site.name} width={480} height={600} />
+            <img className="photo" src={site.photo} alt={locale === "es" ? "Álvaro con su gata" : "Álvaro with his cat"} width={720} height={900} fetchPriority="high" />
           ) : (
             <div className="photo sign" aria-hidden="true">
               <span className="sign-dot" />
@@ -131,6 +147,7 @@ export function Home({ locale }: { locale: Locale }) {
                   {s.name} <span className="years">{s.years}</span>
                 </h3>
                 <p>{s.text}</p>
+                {s.photos && <Gallery photos={s.photos} label={s.name} />}
               </li>
             ))}
           </ol>
@@ -148,6 +165,7 @@ export function Home({ locale }: { locale: Locale }) {
 
         <section id="vida" className="wrap section">
           <h2>{t.life.title}</h2>
+          <Gallery photos={t.life.photos} label={t.life.title} />
           <div className="life">
             {t.life.items.map((i) => (
               <div key={i.title} className="life-item" style={{ "--c": `var(--${i.line})` } as React.CSSProperties}>

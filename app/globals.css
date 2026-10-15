@@ -137,6 +137,7 @@ h1, h2, h3 { text-wrap: balance; }
 .photo {
   width: 100%;
   max-width: 360px;
+  height: auto;
   aspect-ratio: 4 / 5;
   justify-self: end;
   border-radius: 6px;
@@ -181,9 +182,9 @@ ol.line::before {
   border-radius: 3px;
   background: var(--l1);
 }
-ol.line li { position: relative; padding: 0 0 30px 44px; }
-ol.line li:last-child { padding-bottom: 0; }
-ol.line li::before {
+ol.line > li { position: relative; padding: 0 0 30px 44px; }
+ol.line > li:last-child { padding-bottom: 0; }
+ol.line > li::before {
   content: "";
   position: absolute;
   left: 1px;
@@ -194,9 +195,9 @@ ol.line li::before {
   background: var(--bg);
   border: 5px solid var(--l1);
 }
-ol.line li.now::before { background: var(--l1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--l1) 22%, transparent); }
+ol.line > li.now::before { background: var(--l1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--l1) 22%, transparent); }
 ol.line h3 { margin: 0; font-size: 1.15rem; font-weight: 800; }
-ol.line p { margin: 4px 0 0; color: var(--muted); }
+ol.line > li > p { margin: 4px 0 0; color: var(--muted); }
 .years { font-family: var(--f-mono), monospace; font-weight: 500; font-size: 0.8rem; color: var(--muted); margin-left: 6px; white-space: nowrap; }
 
 /* Proyectos */
@@ -268,3 +269,33 @@ ol.line p { margin: 4px 0 0; color: var(--muted); }
 .sign-lines .l4 { background: var(--l4); }
 .sign-lines .l5 { background: var(--l5); }
 .sign-lines .l6 { background: var(--l6); }
+
+/* Fotos: fila que se desliza en horizontal (carrusel sin JavaScript) */
+.gallery {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0 0 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 300px);
+  gap: 14px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.gallery:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.gallery li { scroll-snap-align: start; }
+.gallery figure { margin: 0; }
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--soft);
+}
+.gallery figcaption { margin-top: 6px; font-size: 0.85rem; color: var(--muted); }
+#vida .gallery { grid-auto-columns: minmax(240px, 380px); margin-bottom: 32px; }
